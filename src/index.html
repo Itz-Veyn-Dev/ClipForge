@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClipForge</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">C</div>
+        <div><div class="brand-name">ClipForge</div><div class="brand-subtitle">CLIPBOARD WORKSPACE</div></div>
+      </div>
+
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" id="allButton"><span>▤</span> All clips <span class="nav-count" id="totalCount">0</span></button>
+      <button class="nav-item" id="pinnedButton"><span>⌖</span> Pinned <span class="nav-count" id="pinnedCount">0</span></button>
+
+      <div class="sidebar-bottom">
+        <div class="privacy-card">
+          <div class="privacy-title"><span class="status-dot"></span> Local storage</div>
+          <p>Your history stays on this device. No account. No cloud.</p>
+        </div>
+        <div class="shortcut-hint"><kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>V</kbd><span>Open ClipForge</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><div class="eyebrow">YOUR WORKFLOW, UNINTERRUPTED</div><h1>Clipboard history</h1><p class="subtitle">Everything you copied, ready when you need it.</p></div>
+        <button class="pause-button" id="pauseButton"><span class="pause-icon">Ⅱ</span><span id="pauseLabel">Pause capture</span></button>
+      </header>
+
+      <section class="search-row">
+        <label class="search-box" for="searchInput"><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Search your clips..." autocomplete="off"><kbd> / </kbd></label>
+        <button class="clear-button" id="clearButton">Clear unpinned</button>
+      </section>
+
+      <div class="section-heading"><div><h2 id="listHeading">Recent clips</h2><span id="listDescription">Newest clips appear first</span></div><span class="live-indicator"><span class="status-dot"></span><span id="captureStatus">CAPTURING</span></span></div>
+      <section id="clipList" class="clip-list" aria-live="polite"></section>
+      <div id="emptyState" class="empty-state hidden"><div class="empty-icon">▤</div><h3 id="emptyTitle">Nothing copied yet</h3><p id="emptyText">Copy some text anywhere on your PC and it will show up here.</p></div>
+      <footer class="footer"><span><span class="status-dot"></span> Stored locally on this device</span><span id="footerCount">0 clips</span></footer>
+    </main>
+  </div>
+  <script src="./renderer.js"></script>
+</body>
+</html>

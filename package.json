@@ -1,0 +1,41 @@
+{
+  "name": "clipforge",
+  "version": "1.0.0",
+  "description": "A privacy-first clipboard history manager for Windows",
+  "main": "src/main.js",
+  "author": "Itz-Veyn-Dev",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "dev.itzveyn.clipforge",
+    "productName": "ClipForge",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/clipforge.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "build/clipforge.ico",
+      "uninstallerIcon": "build/clipforge.ico"
+    }
+  }
+}
